@@ -1,0 +1,668 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+    border: 0px solid green;
+}
+
+body {
+	position: relative;
+	vertical-align: top;
+	overflow-y: scroll;
+}
+
+div {
+    display: block;
+}
+
+ul, li, menu {
+	list-style: none
+}
+
+a {
+	color: #666666;
+    text-decoration: none;
+}
+
+#wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 1348px !important;
+    background: #fff;
+    letter-spacing: -0.5px;
+}
+
+.wrappin {
+    min-width: 1348px !important;
+    min-height: 100%;
+}
+
+#header {
+	margin: 0 auto;
+	width: 100%;
+	height: 35px;
+	color: #666;
+}
+
+.headerWrap {
+	margin: 0 auto;
+	width: 400px;
+	height: 35px;
+	padding-left: 640px;
+}
+
+.utilWrap {
+	width: 500px;
+	height: 25px;
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+.menubar li ul {
+	display: none;
+	height: auto;
+	padding: 0;
+	margin: 5px 0 5px -5px;
+	border: 0px;
+	position: absolute;
+	border: 0px solid red;
+}
+
+.menubar li:hover ul { 
+	display:block; 
+}
+
+.utilMenu {
+	float: left;
+	height: 30px;
+	text-align: center;
+	margin-left: 10px;
+}
+
+/*
+.utilMenu a:after {
+    width: 1px;
+    height: 14px;
+    background: #666;
+    position: absolute;
+    top: 5px;
+    content: "";
+}
+*/
+
+#top {
+	margin: 0 auto;
+	width: 100%;
+	height: 85px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.inner {
+    width: 1250px;
+	margin: 0 auto;
+    height: 85px;
+}
+
+.mainLogo a img {
+	float: left;
+	width: 240px;
+	height: 85px;
+	margin-right: 15px;
+}
+
+.mainSearch {
+	float: left;
+	height: 85px;
+}
+
+.mainSearch input {
+	width: 510px;
+	height: 45px;
+	margin-top: 19px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	border-radius: 50px;
+	background: #f9fcff;
+	padding-left: 20px;
+	z-index: -1;
+}
+
+.searchImg {
+	float: left;
+	width: 40px;
+	z-index: 1;
+	margin-left: -50px;
+	margin-top: 30px;
+}
+
+.appleWrap {
+	float: left;
+	height: 85px;	
+}
+
+.appleLogo {
+	float: left;
+	width: auto;
+	height: 35px;
+	margin: 20px 0 0 20px;
+}
+
+#category {
+	margin: 0 auto;
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid red;
+}
+
+.categoryWrap {
+	margin: 0 auto;
+	width: 1080px;
+	height: 50px;
+}
+
+.categoryMenubar li ul {
+	display: none;
+	height: 350px;
+	width: 152px;
+	margin: 15px 0 0 -26px;
+	padding-left: 25px;
+	border: 0px solid blue;
+	background: black;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.categoryMenubar li:hover ul { 
+	display:block; 
+	color: white;
+}
+
+.categoryMain {
+	float: left;
+	width: 150px;
+	height: 34px;
+	font-size: 15px;
+	font-weight: bold;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	padding-left: 25px;
+	padding-top: 16px;
+}
+
+.categoryMain li {
+	color: black;
+	font-size: 12px;
+	padding-top: 14px;
+}
+
+.categoryMain a {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.categoryMenu a {
+	text-align: center;
+	float: left;
+	width: 130px;
+	height: 35px;
+	text-align: center;
+	font-size: 15px;
+	padding-top: 15px;
+	border: 0px solid blue;
+}
+
+#container {
+	margin: 0 auto;
+	width: 100%;
+    border: 0px solid red;
+}
+
+.main {
+	width: 100%;
+	height: 349px;
+	border-bottom: 1px solid #ddd;
+	background: #c0c0c0;
+    margin-bottom: 30px;
+}
+
+.mainWrap {
+	width: 1080px;
+	margin: 0 auto;
+	height: 349px;
+	background: #f2edea;
+}
+
+.middle {
+	margin: 0 auto;
+	width: 1080px;
+	height: 500px;
+	border: 0px solid red;
+}
+
+.section {
+	width: 100%;
+	height: 350px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+    margin-bottom: 30px;
+}
+
+.sectionWrap {
+	width: 1080px;
+	margin: 0 auto;
+	height: 349px;
+}
+
+.side {
+	margin: 0 auto;
+	width: 344px;
+	height: 690px;
+	background: #b6a6d4;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.article {
+	margin: 0 auto;
+	padding: 40px 0;
+	width: 736px;
+	height: 610px;
+	background: skyblue;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.productBoxWrap {
+	margin: 0 auto;
+	width: 738px;
+	border: 0px solid black;
+	height: 650px;
+}
+
+.productBox img {
+	position: relative;
+	float: left;
+	border: 0px solid black;
+	width: 184px;
+	height: 305px;
+}
+
+#footer {
+	margin: 0 auto;
+	width: 100%;
+	height: 300px;
+	background: grey;
+	display: inline-block;
+}
+
+.footerWrap {
+	margin: 0 auto;
+	width: 1080px;
+	height: 300px;
+}
+
+#joinForm {
+    font-size: 16px;
+	width: 100%;
+	height: 600px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+.joinFormWrap {
+	width: 1080px;
+	margin: 0 auto;
+	height: 100%;
+	border: 1px solid blue;
+}
+
+.joinInput {
+	width: 500px;
+	height: 30px;
+	border: 1px solid #999;
+	border-radius: 10px;
+	padding-left: 10px;
+	
+}
+
+#product {
+    font-size: 16px;
+	width: 100%;
+	min-height: 1500px;
+	background: #fff;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+.productWrap {
+	width: 1080px;
+	margin: 0 auto;
+	height: 100%;
+	border: 0px solid blue;
+}
+
+.productWriteInput {
+	width: 500px;
+	height: 30px;
+	border: 1px solid #999;
+	border-radius: 10px;
+	padding-left: 10px;
+}
+
+.productWriteDesc {
+	border: 1px solid #999;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.tab {
+	float: left;
+	width: 1080px;
+	height: 100%;
+	margin-top: 20px;
+}
+
+.tabnav {
+	font-size: 0;
+	width: 1080px;
+	border-bottom: 1px solid black;
+}
+
+.tabnav li {
+	display: inline-block; 
+	height: 30px;
+	text-align: center;
+}
+
+.tabnav li a {
+	position: relative;
+	display: block;
+	color: #666;
+	padding: 0 13px;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.tabnav li a.active {
+	color: red;
+}
+
+.tab2 a:after {
+    width: 1px;
+    height: 14px;
+    background: #666;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    content: "";
+}
+.tab3 a:after {
+    width: 1px;
+    height: 14px;
+    background: #666;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    content: "";
+}
+.tab4 a:after {
+    width: 1px;
+    height: 14px;
+    background: #666;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    content: "";
+}
+.tab5 a:after {
+    width: 1px;
+    height: 14px;
+    background: #666;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    content: "";
+}
+
+.tabContentWrap {
+	padding: 19px;
+	min-height: 650px;
+	border-top: none;
+	font-size: 13px;
+	border: 0px solid blue;
+}
+
+.thumnailType {
+    display: flex;
+    gap: 10px 10px;
+    display: -ms-flexbox;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+.prdItemList .thumnailS .prdItem {
+    width: 200px;
+}
+
+.prdItem {
+    overflow: hidden;
+    position: relative;
+}
+
+.prdImg {
+	width: 200px;
+	height: 180px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.prdInfo {
+	width: 200px;
+	height: 150px;
+	border: 0px solid blue;
+}
+
+.prdName {
+	height: 40px;
+	border: 0px solid red;
+	font-weight: bold;
+}
+
+.prdTitle {
+	height: 20px;
+	border: 0px solid yellow;
+}
+
+.prdPrice {
+	height: 20px;
+	font-weight: bold;
+	color: red;
+	border: 0px solid green;
+}
+
+.prdContent {
+	height: 40px;
+	border: 0px solid orange;
+}
+
+.prdUtil {
+	width: 200px;
+	height: 25px;
+}
+
+.utilRef {
+	width: 100px;
+	float: left;
+	text-align: center;
+}
+
+.utilHit {
+	width: 100px;
+	float: left;
+	text-align: center;
+}
+
+.detailHeader  {
+    width: 100%;
+    padding: 0px 0 30px;
+    margin: 30px 0 30px 0;
+    border-bottom: 2px solid #093250;
+    zoom: 1;
+}
+
+.detailHeader .brandName {
+    margin-bottom: 7px;
+}
+
+.detailHeader .prdTitle {
+    float: left;
+    max-width: 768px;
+    letter-spacing: -1px;
+}
+
+.prdLeftSec {
+	position: relative;
+	float: left;
+	width: 450px;
+	height: 650px;
+	border: 1px solid red;
+	margin-left: 20px;
+}
+
+.prdViewImg {
+	width: 450px;
+	height: 450px;
+	float: left;
+	margin-bottom:30px;
+}
+
+.thumbnailView {
+    position: relative;
+    width: 450px;
+    height: 70px;
+    overflow: hidden;
+    margin-left: 28px;
+}
+
+.thumbnailView ul li img {
+    float: left;
+    width: 65px;
+    height: 65px;
+    border: 1px solid #fff;
+    margin-right: 15px;
+    background: #eee;
+    text-align: center;
+}
+
+.prdRightSec {
+    float: left;
+    width: 500px;
+    height: 650px;
+    font-size: 13px;
+    border: 0px solid green;
+    margin-left: 90px;
+}
+
+.prdRightSec li {
+	 position: relative;
+	 border-bottom: 1px solid #ddd;
+}
+
+.prdRightSec dl {
+    float: left;
+    width: 490px;
+    color: #6a747c;
+    padding-left: 10px;
+	zoom: 1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+	border: 0px solid red;
+}
+
+.prdRightSec dt {
+    float: left;
+    width: 100px;
+    color: #6a747c;
+    padding-left: 10px;
+    font-weight: bold;
+	border: 0px solid yellow;
+}
+
+.prdRightSec dd {
+	float: left;
+	width: 360px;
+	border: 0px solid blue;
+}
+
+.modelCode {
+	height: 50px;
+}
+
+.priceArea {
+	height: 50px;
+}
+
+.delvArea {
+	height: 260px;
+}
+
+.optionChoiceSel {
+    position: relative;
+    height: 70px;
+    background: #f6f6f6;
+}
+
+.optionChoiceSel dt {
+	padding-top: 11px;
+}
+
+.viewOpt {
+	width: 360px;
+	height: 40px;
+	padding-left: 10px;
+	color: #6a747c;
+	border: 1px solid #ddd;
+}
+
+.viewBtnArea {
+	width: 500px;
+	height: 65px;
+	border: 0px solid red;
+	margin-top: 20px;
+}
+
+.btnView1 {
+	float:left;
+	width: 270px;
+	height: 65px;
+	color: white;
+	background: red;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.btnView2 {
+	float:left;
+	width: 155px;
+	height: 65px;
+	color: white;
+	background: black;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.btnView3 {
+	float:left;
+	width: 65px;
+	height: 65px;
+	font-size: 18px;
+	border: 1px solid #6a747c;
+}

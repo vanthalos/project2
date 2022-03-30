@@ -27,18 +27,53 @@
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
 
-<link rel="stylesheet" href="/css/css.css?after">
+<link rel="stylesheet" href="/css/css.css">
 <link rel="shortcut icon" type="image⁄x-icon" href="/img/logo.jpg">
 
 </head>
+
+<%
+Cookie[] cookies = request.getCookies();
+String cookie_name = "";
+
+if(cookies != null){
+	for(int i =0; i < cookies.length; i++){
+		if(cookies[i].getName().trim().equals("cid")){
+			System.out.println(cookies[i].getValue());
+			cookie_name=cookies[i].getValue();
+		}
+	}
+}
+%>
+
 <body>
 
-session_id : ${sessionScope.id } |||
-session_name : ${sessionScope.name } |||
-session_type : ${sessionScope.type }
-<!-- EL -->
+
+
+<!--	인덱스에 헤더 복붙/ 메인카테고리 드랍메뉴 펼치기 -> id추가
+<style>
+	#categoryMenubar li ul {
+		display: block;
+		height: 350px;
+		width: 152px;
+		margin: 15px 0 0 -26px;
+		padding-left: 25px;
+		border: 0px solid blue;
+		background: black;
+	    opacity: 0.7;
+	    z-index: 1;
+	}
+</style>
+-->
 
 <div id="wrap" class="wrappin">
+session_id : ${sessionScope.id } |||
+session_name : ${sessionScope.name } |||
+session_type : ${sessionScope.type } |||
+session_pass : ${sessionScope.pass } |||
+session_sel_num : ${sessionScope.sel_num} |||
+쿠키 이름 ${cookie.cid.name} ||| 쿠키 값 ${cookie.cid.value} ||
+<!-- EL -->
 	<div id="header">
 		<div class="headerWrap">
 			<div class="utilWrap">
@@ -47,10 +82,10 @@ session_type : ${sessionScope.type }
 						<!-- 로그인 없음 -->
 						<c:if test="${sessionScope.id == null }">
 						<li class="utilMenu">
-							<a href="/member/loginSelect.jsp">로그인&nbsp;&nbsp;|</a>
+							<a href="/member/choiceLogin">로그인&nbsp;&nbsp;|</a>
 						</li>	
 						<li class="utilMenu">
-							<a href="/member/joinSelect.jsp">회원가입&nbsp;&nbsp;|</a>
+							<a href="/member/choiceJoin">회원가입&nbsp;&nbsp;|</a>
 						</li>
 						<li class="utilMenu">
 							<a href="#">장바구니&nbsp;&nbsp;|</a>
@@ -62,7 +97,7 @@ session_type : ${sessionScope.type }
 						<!-- 관리자 admin -->
 						<c:if test="${sessionScope.type eq '0' }">
 							<li class="utilMenu">
-								<a href="/admin/">관리자&nbsp;&nbsp;|</a>
+								관리자님 어서오세요!&nbsp;&nbsp;|
 							</li>
 							<li class="utilMenu">
 								<a href="/member/logout">로그아웃 &nbsp;&nbsp;|</a>
@@ -88,13 +123,16 @@ session_type : ${sessionScope.type }
 						<!-- 일반회원 -->
 						<c:if test="${sessionScope.type eq '1' }">
 							<li class="utilMenu">
+								아이디 님 어서오세요!&nbsp;&nbsp;|
+							</li>
+							<li class="utilMenu">
 								<a href="/member/logout">로그아웃&nbsp;&nbsp;|</a>
 							</li>
 							<li class="utilMenu">
 								<a href="#" id="current">마이페이지∨&nbsp;&nbsp;|</a>
 								<ul>
 									<li>
-										<a href="#">회원정보수정</a>
+										<a href="/member/MemberJoin_up">회원정보수정</a>
 									</li>
 									<li>
 										<a href="#">주문배송조회</a>
@@ -114,31 +152,31 @@ session_type : ${sessionScope.type }
 						<!-- 판매자 seller -->
 						<c:if test="${sessionScope.type eq '2' }">	
 							<li class="utilMenu">
-								<a href="/admin/">판매자&nbsp;&nbsp;|</a>
+								${sessionScope.name }님 어서오세요!&nbsp;&nbsp;|
 							</li>
 							<li class="utilMenu">
 								<a href="/member/logout">로그아웃&nbsp;&nbsp;|</a>
 							</li>
 							<li class="utilMenu">
-								<a href="#" id="current">마이페이지∨&nbsp;&nbsp;|</a>
+								<a href="/seller/sellerMypage" id="current">마이페이지∨&nbsp;&nbsp;|</a>
 								<ul>
 									<li>
-										<a href="#">내정보수정</a>
+										<a href="/seller/sellerMypage">내정보수정</a>
 									</li>
 									<li>
-										<a href="#">구매자관리</a>
+										<a href="/seller/sellerManageBuyer">구매자관리</a>
 									</li>
 									<li>
-										<a href="#">상품관리</a>
+										<a href="/product/productShopList?tab=1">상품관리</a>
 									</li>
 									<li>
-										<a href="#">상품등록</a>
+										<a href="/product/productWrite.jsp">상품등록</a>
 									</li>
 									<li>
-										<a href="#">주문배송관리</a>
+										<a href="/seller/productDelivery">배송관리</a>
 									</li>
 									<li>
-										<a href="#">결제관리</a>
+										<a href="/seller/sellerManageOrder">주문관리</a>
 									</li>
 								</ul>
 							</li>
@@ -166,19 +204,21 @@ session_type : ${sessionScope.type }
 			<div class="mainLogo">
 				<a href="/"><img src="/img/imageBanner.gif"></a>
 			</div>
+			<form action="" method="get">
 			<div class="mainSearch">
-				<input class="mainInput" type="text" id="" name="" placeholder="header">
+				<input class="mainInput" type="text" id="" name="search">
 			</div>
 			<a href="#"><img src="/img/search.png" class="searchImg"></a>
 			<div class="appleWrap">
 				<a href="#"><img src="/img/apple.png" class="appleLogo"></a>
 			</div>
+			</form>
 		</div>
 	</div>
 	
 	<div id="category">
 		<div class="categoryWrap">
-			<div class="categoryMenubar">
+			<div id="" class="categoryMenubar">
 				<ul>
 					<li class="categoryMain">
 						<a href="#"><img src="/img/menu.png" height=13>&nbsp;전체 카테고리</a>
