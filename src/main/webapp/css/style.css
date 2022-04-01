@@ -130,6 +130,11 @@ a {
 	z-index: -1;
 }
 
+ .mainInput:focus {
+ 	border: 1px solid red;
+ 	outline: none;
+}
+
 .searchImg {
 	float: left;
 	width: 40px;
@@ -333,7 +338,7 @@ a {
 #product {
     font-size: 16px;
 	width: 100%;
-	min-height: 1500px;
+	min-height: 900px;
 	background: #fff;
     margin-bottom: 30px;
     padding: 20px 0;
@@ -531,7 +536,7 @@ a {
 	float: left;
 	width: 450px;
 	height: 650px;
-	border: 1px solid red;
+	border: 0px solid red;
 	margin-left: 20px;
 }
 
@@ -562,11 +567,11 @@ a {
 
 .prdRightSec {
     float: left;
-    width: 500px;
+    width: 520px;
     height: 650px;
     font-size: 13px;
     border: 0px solid green;
-    margin-left: 90px;
+    margin-left: 70px;
 }
 
 .prdRightSec li {
@@ -576,10 +581,10 @@ a {
 
 .prdRightSec dl {
     float: left;
-    width: 490px;
+    width: 510px;
     color: #6a747c;
-    padding-left: 10px;
 	zoom: 1;
+    padding-left: 10px;
     padding-top: 15px;
     padding-bottom: 15px;
 	border: 0px solid red;
@@ -592,6 +597,7 @@ a {
     padding-left: 10px;
     font-weight: bold;
 	border: 0px solid yellow;
+	margin-right: 10px;
 }
 
 .prdRightSec dd {
@@ -604,18 +610,48 @@ a {
 	height: 50px;
 }
 
-.priceArea {
+.modelCode dl {
 	height: 50px;
+	margin-top: -13px;
+}
+
+.priceArea {
+	height: 85px;
+}
+
+.priceArea dl {
+	height: 50px;
+	margin-top: -10px;
+}
+
+.price1 {
+	color: black;
+	text-decoration: line-through;
+	margin-top: -7px;
+	margin-bottom: 5px;
+}
+
+.price2 {
+	color: #ed1c24;
+	margin-top: -5px;
 }
 
 .delvArea {
-	height: 260px;
+	height: 190px;
+}
+
+.delvArea dd {
+	margin-bottom: 10px;
 }
 
 .optionChoiceSel {
     position: relative;
     height: 70px;
     background: #f6f6f6;
+}
+
+.optionChoiceSel dl {
+    margin-top: -8px;
 }
 
 .optionChoiceSel dt {
@@ -630,16 +666,101 @@ a {
 	border: 1px solid #ddd;
 }
 
+
+.qtyArea {
+	height: 60px;
+	border-collapse: collapse;
+	border: 0px solid blue;
+	margin-top: 10px;
+}
+
+.qtyArea span {
+	border-collapse: collapse;
+}
+
+.qytArea dl {
+	height: 50px;
+	margin-top: -10px;
+}
+
+.qtyDown {
+ 	float: left;
+ 	width: 27px;
+ 	height: 27px;
+ 	margin-top: -5px;
+ 	background: #fff;
+ 	border: 1px solid #aeb3bb;
+ 	color: #666;
+}
+
+.qtyDown:focus {
+ 	outline: none;
+ }
+
+.count {
+ 	float: left;
+ 	width: 18px;
+ 	height: 25px;
+ 	border-top: 1px solid #aeb3bb;
+ 	border-bottom: 1px solid #aeb3bb;
+ 	padding-left: 11px;
+ 	margin-top: -5px;
+ 	color: #666;
+ }
+ 
+.count:focus {
+ 	outline: none;
+ }
+ 
+.qtyUp {
+ 	float: left;
+ 	width: 27px;
+ 	height: 27px;
+ 	margin-top: -5px;
+ 	background: #fff;
+ 	border: 1px solid #aeb3bb;
+ 	color: #666;
+ }
+ 
+.qtyUp:focus {
+ 	outline: none;
+ }
+ 
+.totalPriceArea {
+	border-top: 1px solid #aeb3bb;
+ 	height: 50px;
+ 	padding-top: 10px;
+ }
+ 
+.totalPriceArea dd {
+	color: #ed1c24;
+	font-size: 17px;
+	font-weight: bold;
+	margin-top: -5px;
+}
+
+.totalInput {
+ 	width: 18px;
+ 	height: 25px;
+ 	padding-left: 11px;
+ 	margin-top: -5px;
+ 	color: #666;
+}
+
+.totalInput:focus {
+ 	outline: none;
+ }
+
 .viewBtnArea {
-	width: 500px;
+	width: 520px;
 	height: 65px;
 	border: 0px solid red;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .btnView1 {
 	float:left;
-	width: 270px;
+	width: 280px;
 	height: 65px;
 	color: white;
 	background: red;
@@ -650,7 +771,7 @@ a {
 
 .btnView2 {
 	float:left;
-	width: 155px;
+	width: 165px;
 	height: 65px;
 	color: white;
 	background: black;
@@ -666,3 +787,4 @@ a {
 	font-size: 18px;
 	border: 1px solid #6a747c;
 }
+

@@ -30,6 +30,7 @@ public class ProductView extends HttpServlet {
 		request.setAttribute("p", p);
 		RequestDispatcher dis = request.getRequestDispatcher("view.jsp");
 		dis.forward(request, response);
+		
 	}
 	
 }
