@@ -63,7 +63,7 @@
 								</dd>
 								<dt style="font-size: 15px; color:red;">회원판매가</dt>
 								<dd>
-									<h2 id="cartPrice1" class="price2"></h2>
+									<h2 class="price2"><fmt:formatNumber value="${p.price *0.95}" pattern="#,###" /> 원</h2>
 								</dd>
 							</dl>
 						</li>
@@ -100,44 +100,24 @@
 					</ul>
 					<div class="qtyArea">
 					
-					<!-- /////////////////////////////////////수량 유효성검사////////////////////////////////// -->
+					<!-- /////////////////////////////////////수량 유효성검사 해야됨////////////////////////////////// -->
 						<script>
-							var cartPrice = Math.floor(${p.price * 0.95}/10) * 10;
-			            	cartPrice = cartPrice.toLocaleString();
-			            	document.getElementById("cartPrice1").innerHTML = cartPrice + " 원";
 							$(document).ready(function(){
-				            	document.getElementById("cartPrice").innerHTML = cartPrice + " 원";
-				            	
 							    $('.count_range input[count_range]').click(function(e){
 							        e.preventDefault();
-							        var type = $(this).attr('count_range'); //m, p
-							        var count = parseInt($('#count').val());
+							        var type = $(this).attr('count_range');
+							        var $count = $(this).parent().children('input.count');
+							        var count_val = $count.val(); // min 1
 							        if(type=='m'){
-							            if(count==1){
+							            if(count_val<2){
 							            	alert("최소 주문수량은 1개입니다.");
-							            	document.getElementById("count").value = 1;
-							            	cartPrice = Math.floor(${p.price * 0.95}/10) * 10;
-							            	cartPrice = cartPrice.toLocaleString();
-							            	document.getElementById("cartPrice").innerHTML = cartPrice + " 원";
 							                return;
-							            }else{
-							            	count -= 1;
-								            document.getElementById("count").value = count;
-								            cartPrice = Math.floor(${p.price * 0.95}/10) * 10 * count;
-								            cartPrice = cartPrice.toLocaleString();
-							            	document.getElementById("cartPrice").innerHTML = cartPrice + " 원";
 							            }
+							            $count.val(parseInt(count_val)-1);
 							        }else if(type=='p'){
-							            count += 1;
-							            document.getElementById("count").value = count;
-							            cartPrice = Math.floor(${p.price * 0.95}/10) * 10 * count;
-							            cartPrice = cartPrice.toLocaleString();
-						            	document.getElementById("cartPrice").innerHTML = cartPrice + " 원";
+							            $count.val(parseInt(count_val)+1);
 							        }
-							        
-							    cartPrice = document.getElementById("cartPrice").innerHTML.replace(/,|원|\s/g,'');
 							    });
-							    cartPrice = document.getElementById("cartPrice").innerHTML.replace(/,|원|\s/g,'');
 							});
 						</script>
 						<dl>
@@ -147,6 +127,18 @@
 									<input value="-" count_range="m" type="button" class="qtyDown">
 									<input class="count" name="count" id="count" value="1" readonly>
 									<input value="+" count_range="p" type="button" class="qtyUp">
+									<script>
+										var totalAmount = document.getElementById("count");
+										totalAmount.onchange = function() {
+											console.log(totalAmount.value);
+										}
+										var price = '<c:out value="${p.price}"/>';
+											console.log(price);
+										var totalPrice = price * totalAmount;
+											console.log(price);
+//										document.getElementsByClassName('totalPrice').value = price * totalAmount;
+										
+									</script>
 								</div>
 							</dd>
 						</dl>
@@ -154,28 +146,30 @@
 					<div class="totalPriceArea">
 						<dl>
 							<dt>총 합계금액</dt>
-							<dd id="cartPrice"></dd>
+
+							<dd id="totalPrice">
+							</dd>
+						
 						</dl>
 					</div>
+					<script>
+						$(function btconfirm(){
+						   $("#id").click(function (){
+						      if(confirm("장바구니에 담으시겠습니까?")){
+						         alert("장바구니에 담았습니다.");
+						         // return true;
+						      }else{
+						         return false;
+						      }
+						   });
+						});	
+					</script>
 					<div class="viewBtnArea">
 						<div>
 							<a href=""><input type="button" value="바로구매" class="btnView1"></a>
-							<form action="/product/productBasket" method="post">
-								<input name="p_uid" type="hidden" value="${p.p_uid }">
-								<script>
-									$(function btconfirm(){
-									   $("#id").click(function (){
-									      if(confirm("장바구니에 담으시겠습니까?")){
-									         alert("장바구니에 담았습니다.");
-									         // return true;
-									      }else{
-									         return false;
-									      }
-									   });
-									});
-								</script>
+							<form id="id" action="/product/ProductJang" method="post">
+								<input name="uid" type="hidden" value="${pro.uid }">
 								<a href="productJang.jsp"><input type="button" value="장바구니" class="btnView2"></a>
-<!-- 							<a href="#" onclick=" location.href = '/product/productJang.jsp?' + 'cartPrice=' + cartPrice; + '&count=' + count; return false;"> -->
 							</form>
 							<a href="#"><input type="button" value="찜♡" class="btnView3"></a>
 						</div>

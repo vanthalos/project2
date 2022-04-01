@@ -17,7 +17,7 @@
 					$(this).addClass('active');
 				}).filter(':eq(${tab-1})').click();
 			});
-			  
+        	
 		</script>
 		
 		<div class="tab">
@@ -36,6 +36,20 @@
 			    <ul class="thumnailType">
 					<c:set var="number" value="${number }"/>
 					<c:forEach var="list" items="${list }">
+					
+					
+<!-- 리스트 할인가 일자리 반올림 처리 해야됨.
+					<script>
+						var cartPrice = ${list.price};
+						for(i=1; i<=${count}; i++) {
+							cartPrice = Math.floor(${list.price * 0.95}/10) * 10;
+				        	cartPrice = cartPrice.toLocaleString();
+			        		document.getElementById("prdPrice").innerHTML = cartPrice + " 원";
+						}
+					</script>
+ -->
+ 
+ 
 					<li>
 						<a href="/product/productView?uid=${list.p_uid }">
 						<div class="prdItem">
@@ -57,8 +71,8 @@
 							</p>
 							<p class="prdName">
 								<c:choose>
-						           <c:when test="${fn:length(list.p_name) > 46}">
-						            <c:out value="${fn:substring(list.p_name, 0, 45)}"/>...
+						           <c:when test="${fn:length(list.p_name) > 34}">
+						            <c:out value="${fn:substring(list.p_name, 0, 33)}"/>...
 						           </c:when>
 						           <c:otherwise>
 						            <c:out value="${list.p_name}"/>
@@ -66,12 +80,15 @@
 						        </c:choose><br>
 						    </p>
 							<p class="prdPrice">
-								<fmt:formatNumber value="${list.price }" pattern="#,###" /> 원<br>
+								<fmt:formatNumber value="${list.price }" pattern="#,###" /> 원
+							</p>
+							<p id="prdPrice" class="prdPrice2">
+								<fmt:formatNumber value="${list.price *0.95}" pattern="#,###" /> 원
 							</p>
 							<p class="prdContent">
 								<c:choose>
-						           <c:when test="${fn:length(list.content) > 46}">
-						            <c:out value="${fn:substring(list.content, 0, 45)}"/>...
+						           <c:when test="${fn:length(list.content) > 34}">
+						            <c:out value="${fn:substring(list.content, 0, 33)}"/>...
 						           </c:when>
 						           <c:otherwise>
 						            <c:out value="${list.content}"/>
@@ -93,7 +110,7 @@
 			</div>
 			
 			<!-- 페이징 시작 -->
-			<div align=center>	
+			<div align=center style="margin-bottom: 50px;">
 			<c:if test="${count>0 }">
 				<c:set var="pageCount" value="${count / pageSize + (count % pageSize == 0 ? 0 : 1) }" />
 				<fmt:parseNumber var="pageCount" value="${pageCount }" integerOnly="true" />
